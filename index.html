@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="game.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img id="fighter-img" src="" class="img-fluid" alt="">
+                <h1>Name: <span id="fighter-name"></span></h1>
+                <h5>Health: <span id="health"></span></h5>
+                <h5>Hit: <span id="hit"></span></h5>
+                <button class="btn btn-danger" onclick="slap()">slap</button>
+                <button class="btn btn-danger" onclick="punch()">punch</button>
+                <button class="btn btn-danger" onclick="kick()">kick</button>
+            </div>
+            <div id="items">
+                <h5>Status: <span id="status"></span></h5>
+                <button class="btn btn-danger" onclick="fire()">Fire</button>
+                <button class="btn btn-danger" onclick="lighting()">Lighting</button>
+                <button class="btn btn-danger" onclick="ice()">Ice</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+
+</html>
