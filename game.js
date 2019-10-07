@@ -37,6 +37,10 @@ function update() {
     itemsElem.innerText = player.items;
     imageElem.src = player.status[player.currentStatus];
 }
+function player() {
+    player.health--;
+    update();
+}
 
 function slap() {
     player.health--;
@@ -55,6 +59,7 @@ function kick() {
     update();
 }
 function giveFire() {
+    items.fire -= 2;
     player.health -= 2;
     player.hit++;
     update();
