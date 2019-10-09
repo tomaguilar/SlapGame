@@ -13,14 +13,14 @@ let player = {
     items: {
         fire: 2,
         lighting: 15,
-        ice: 5,
+        ice: 7,
     }
 };
 
 let items = {
-    fire: { name: 'Fire', modifier: 2, description: 'IT BURNS!' },
-    lighting: { name: 'Lighting', modifier: 15, description: 'THUNDERSTRUCK!' },
-    ice: { name: 'Ice', modifier: 5, description: 'CAUGHT A COLD!' }
+    fire: { name: 'Fire', modifier: 0, description: 'IT BURNS!' },
+    lighting: { name: 'Lighting', modifier: 1, description: 'THUNDERSTRUCK!' },
+    ice: { name: 'Ice', modifier: 2, description: 'CAUGHT A COLD!' }
 }
 
 function update() {
@@ -37,10 +37,7 @@ function update() {
     itemsElem.innerText = player.items;
     imageElem.src = player.status[player.currentStatus];
 }
-function player() {
-    player.health--;
-    update();
-}
+
 
 function slap() {
     player.health--;
@@ -60,7 +57,7 @@ function kick() {
 }
 function giveFire() {
     items.fire -= 2;
-    player.health -= 2;
+    player.health -= 5;
     player.hit++;
     update();
 }
@@ -70,12 +67,15 @@ function giveLighting() {
     update();
 }
 function giveIce() {
-    player.health -= 5;
+    player.health -= 7;
     player.hit++;
     update();
 }
 function addMods() {
     player.health -= damage + addMods();
+    for (let index = 0; index < player.length; index++) {
+        let player = player[index];
+    }
 
 }
 function giveStatus() {
@@ -88,9 +88,6 @@ function giveStatus() {
     }
     update();
 }
-
-
-
 function checkStatus() {
     if (player.health >= 70) {
         player.currentStatus = "well";
