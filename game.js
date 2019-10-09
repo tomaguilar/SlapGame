@@ -10,17 +10,21 @@ let player = {
         done: "https://i.imgflip.com/1pazu0.jpg",
 
     },
-    items: {
-        fire: 2,
-        lighting: 15,
-        ice: 7,
-    }
+    items: []
 };
 
 let items = {
     fire: { name: 'Fire', modifier: 0, description: 'IT BURNS!' },
     lighting: { name: 'Lighting', modifier: 1, description: 'THUNDERSTRUCK!' },
     ice: { name: 'Ice', modifier: 2, description: 'CAUGHT A COLD!' }
+}
+
+function addMods() {
+    player.health -= damage + addMods();
+    for (let index = 0; index < items.length; index++) {
+        let items = items[index];
+        update();
+    }
 }
 
 function update() {
@@ -56,27 +60,16 @@ function kick() {
     update();
 }
 function giveFire() {
-    items.fire -= 2;
-    player.health -= 5;
-    player.hit++;
+    items.fire += 0;
     update();
 }
 function giveLighting() {
-    player.health -= 15;
-    player.hit++;
+    items.lighting += 1;
     update();
 }
 function giveIce() {
-    player.health -= 7;
-    player.hit++;
+    items.ice += 2;
     update();
-}
-function addMods() {
-    player.health -= damage + addMods();
-    for (let index = 0; index < player.length; index++) {
-        let player = player[index];
-    }
-
 }
 function giveStatus() {
     if (player.health == 0) {
@@ -88,6 +81,7 @@ function giveStatus() {
     }
     update();
 }
+
 function checkStatus() {
     if (player.health >= 70) {
         player.currentStatus = "well";
@@ -102,7 +96,3 @@ function checkStatus() {
 
 
 update()
-
-
-
-
