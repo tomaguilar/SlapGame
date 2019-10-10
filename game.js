@@ -14,17 +14,18 @@ let player = {
 };
 
 let items = {
-    fire: { name: 'Fire', modifier: 0, description: 'IT BURNS!' },
+    fire: { name: 'Fire', modifier: 3, description: 'IT BURNS!' },
     lighting: { name: 'Lighting', modifier: 1, description: 'THUNDERSTRUCK!' },
     ice: { name: 'Ice', modifier: 2, description: 'CAUGHT A COLD!' }
 }
 
 function addMods() {
-    player.health -= damage + addMods();
-    for (let index = 0; index < items.length; index++) {
-        let items = items[index];
-        update();
+    let modDamage = 0
+    for (let index = 0; index < player.items.length; index++) {
+        let item = player.items[index];
+        modDamage += item.modifier;
     }
+    return modDamage
 }
 
 function update() {
@@ -44,31 +45,31 @@ function update() {
 
 
 function slap() {
-    player.health--;
     player.hit++;
+    player.health -= 1 + addMods();
     update();
     console.log(player.health);
 }
 function punch() {
-    player.health -= 5;
+    player.health -= 5 + addMods();
     player.hit++;
     update();
 }
 function kick() {
-    player.health -= 10;
+    player.health -= 10 + addMods();
     player.hit++;
     update();
 }
 function giveFire() {
-    items.fire += 0;
+    player.items.push(items.fie)
     update();
 }
 function giveLighting() {
-    items.lighting += 1;
+    player.items.push(items.lighting)
     update();
 }
 function giveIce() {
-    items.ice += 2;
+    player.items.push(items.ice)
     update();
 }
 function giveStatus() {
